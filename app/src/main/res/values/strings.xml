@@ -1,5 +1,5 @@
 <resources>
     <string name="app_name">Từ Vựng Tiếng Anh</string>
-    <string name="taikhoan">Tài Khoản</string>
-    <string name="matkhau">Mật Khẩu</string>
+    <string name="taikhoan">Username</string>
+    <string name="matkhau">Password</string>
 </resources>

@@ -4,35 +4,23 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".HomeApp"
+    tools:context=".Tu_Vung"
     android:orientation="vertical">
+
     <LinearLayout
         android:background="@drawable/color_1_btn_1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <ImageView
-            android:id="@+id/imgmenu"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:src="@drawable/ic_menu_black_24dp"></ImageView>
     </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
 
-        <ImageView
-            android:id="@+id/imgwords"
-            android:layout_width="229dp"
-            android:layout_height="121dp"
-            android:src="@drawable/logowords"
-            android:layout_marginLeft="80dp"
-            android:layout_marginTop="50dp"
-            />
-
-        <ImageView
-            android:id="@+id/imgexercise"
-            android:layout_width="229dp"
-            android:layout_height="121dp"
-            android:src="@drawable/logoexercise"
-            android:layout_marginLeft="80dp"
-            android:layout_marginTop="50dp"/>
+    </LinearLayout>
 
 </LinearLayout>
