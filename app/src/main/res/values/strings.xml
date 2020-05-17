@@ -2,4 +2,13 @@
     <string name="app_name">Từ Vựng Tiếng Anh</string>
     <string name="taikhoan">Username</string>
     <string name="matkhau">Password</string>
+    <string name="drawer_open">Drawer Open</string>
+    <string name="drawer_close">Drawer Close</string>
+    <string name="website">facebook.com</string>
+    <string name="home">Home Page</string>
+    <string name="words">Words</string>
+    <string name="exercise">Exercise</string>
+    <string name="favorites">Favorites</string>
+    <string name="settings">Settings</string>
+    <string name="about">About</string>
 </resources>

@@ -11,20 +11,20 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 public class CustomAdapter extends BaseAdapter{
-    private Context context; //context
-    private ArrayList<Words> words;
+    private Context context;
+    private ArrayList<Content> contents;
 
-    public CustomAdapter(Context context, ArrayList<Words> words) {
+    public CustomAdapter(Context context, ArrayList<Content> contents) {
         this.context = context;
-        this.words = words;
+        this.contents = contents;
     }
     @Override
     public int getCount() {
-        return words.size();
+        return contents.size();
     }
     @Override
     public Object getItem(int position) {
-        return words.get(position);
+        return contents.get(position);
     }
     @Override
     public long getItemId(int position) {
@@ -38,7 +38,7 @@ public class CustomAdapter extends BaseAdapter{
             LayoutInflater inflater = LayoutInflater.from(context);
             view =  inflater.inflate(R.layout.activity_line_tuvung, null);
         }
-        Words p = (Words)getItem(position);
+        Content p = (Content) getItem(position);
         if (p != null) {
             // Anh xa + Gan gia tri
             TextView txt1 = (TextView) view.findViewById(R.id.TextViewName);

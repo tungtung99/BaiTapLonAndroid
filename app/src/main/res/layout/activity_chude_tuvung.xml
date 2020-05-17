@@ -22,7 +22,7 @@
     </LinearLayout>
 
     <ListView
-        android:id="@+id/listviewtuvung"
+        android:id="@+id/listviewchude"
         android:layout_width="410dp"
         android:layout_height="681dp"
         app:layout_constraintStart_toStartOf="parent"

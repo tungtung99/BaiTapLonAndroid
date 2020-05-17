@@ -1,10 +1,10 @@
 package com.example.tuvungtienganh;
 
-public class Words {
+public class Content {
     private String name;
     private int image;
 
-    public Words(String name,int image){
+    public Content(String name,int image){
         this.name = name;
         this.image = image;
     }

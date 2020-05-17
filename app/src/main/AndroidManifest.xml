@@ -9,10 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".line_tuvung"></activity>
+        <activity android:name=".word"></activity>
+        <activity android:name=".line_tuvung" />
         <activity android:name=".Chude_tuvung" />
         <activity android:name=".Tu_Vung" />
-        <activity android:name=".rowHome" />
         <activity android:name=".HomeApp" />
         <activity android:name=".MainActivity">
             <intent-filter>
