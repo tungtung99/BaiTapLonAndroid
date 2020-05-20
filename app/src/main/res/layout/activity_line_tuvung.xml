@@ -8,20 +8,19 @@
 
     <ImageView
         android:id="@+id/imageWords"
-        android:layout_width="114dp"
-        android:layout_height="105dp"
-        android:layout_marginStart="36dp"
-        android:layout_marginTop="32dp"
+        android:layout_width="150dp"
+        android:layout_height="120dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="16dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_launcher_background" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/TextViewName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="80dp"
-        android:layout_marginTop="76dp"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="72dp"
         android:text="TextView"
         app:layout_constraintStart_toEndOf="@+id/imageWords"
         app:layout_constraintTop_toTopOf="parent" />

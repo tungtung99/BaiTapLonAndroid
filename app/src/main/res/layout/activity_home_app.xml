@@ -7,40 +7,28 @@
     android:id="@+id/drawer_layout"
     tools:context=".HomeApp"
     android:fitsSystemWindows="true">
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolBar"
-            android:background="@drawable/color_1_btn_1"
-            android:theme="@style/ThemeOverlay.AppCompat.Dark"
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"/>
+            android:layout_height="?attr/actionBarSize"
+            android:background="@drawable/color_1_btn_1"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark" />
 
-        <ImageView
-            android:id="@+id/imgwords"
-            android:layout_width="182dp"
-            android:layout_height="143dp"
+        <ListView
+            android:id="@+id/listviewchude"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:layout_below="@+id/toolBar"
-            android:layout_alignParentStart="true"
-            android:layout_marginStart="116dp"
-            android:layout_marginLeft="80dp"
-            android:layout_marginTop="44dp"
-            android:src="@drawable/logowords" />
+            android:layout_marginTop="-1dp" />
 
-        <ImageView
-            android:id="@+id/imgexercise"
-            android:layout_width="182dp"
-            android:layout_height="143dp"
-            android:layout_below="@+id/imgwords"
-            android:layout_alignParentStart="true"
-            android:layout_marginStart="116dp"
-            android:layout_marginLeft="80dp"
-            android:layout_marginTop="72dp"
-            android:src="@drawable/logoexercise" />
 
     </RelativeLayout>
+
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/navigation_view"
         app:menu="@menu/navigation_menu"

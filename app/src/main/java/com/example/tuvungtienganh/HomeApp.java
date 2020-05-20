@@ -8,17 +8,31 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.ListView;
+import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
+
+import java.util.ArrayList;
 
 public class HomeApp extends AppCompatActivity {
     ImageView imgwords,imgexercise;
     private DrawerLayout drawerLayout;
     private ActionBarDrawerToggle actionBarDrawerToggle;
     private NavigationView navigationView;
+    ListView listViewChuDe;
+    Button btn;
+
+    String[] names={"Animals","Number-Time","Dish"};
+    int[] images={R.drawable.b,R.drawable.a,R.drawable.c};
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,12 +41,13 @@ public class HomeApp extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+
         drawerLayout = findViewById(R.id.drawer_layout);
         actionBarDrawerToggle = new ActionBarDrawerToggle(HomeApp.this,drawerLayout,R.string.drawer_open,R.string.drawer_close);
         drawerLayout.addDrawerListener(actionBarDrawerToggle);
         actionBarDrawerToggle.syncState();
         navigationView = findViewById(R.id.navigation_view);
-        View navView = navigationView.inflateHeaderView(R.layout.navigation_header);
+        //View navView = navigationView.inflateHeaderView(R.layout.navigation_header);
         navigationView.setItemIconTintList(null);
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -41,8 +56,24 @@ public class HomeApp extends AppCompatActivity {
                 return false;
             }
         });
-        init();
-        controlhome();
+        listViewChuDe = (ListView) findViewById(R.id.listviewchude);
+        final CustomAdapter adapter=new CustomAdapter(HomeApp.this,getContent());
+        listViewChuDe.setAdapter(adapter);
+        controlcontent();
+
+
+    }
+    public ArrayList<Content> getContent()
+    {
+        ArrayList<Content> contents = new ArrayList<Content>();
+        Content p;
+
+        for(int i=0;i< names.length;i++)
+        {
+            p=new Content(names[i],images[i]);
+            contents.add(p);
+        }
+        return contents;
     }
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
@@ -54,10 +85,10 @@ public class HomeApp extends AppCompatActivity {
     public void UserMenuSelected(MenuItem menuItem){
         switch (menuItem.getItemId()){
             case R.id.nav_home:
+                startActivity(new Intent(this,HomeApp.class));
                 break;
-            case R.id.nav_words:
-                break;
-            case R.id.nav_exercise:
+            case R.id.nav_quiz:
+
                 break;
             case R.id.nav_favorites:
                 break;
@@ -67,25 +98,17 @@ public class HomeApp extends AppCompatActivity {
                 break;
         }
     }
-    private void controlhome() {
-        imgwords.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(HomeApp.this,Chude_tuvung.class);
-                startActivity(intent);
-            }
-        });
-        imgexercise.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(HomeApp.this,Tu_Vung.class);
-                startActivity(intent);
-            }
-        });
-    }
 
-    private void init() {
-        imgwords=findViewById(R.id.imgwords);
-        imgexercise=findViewById(R.id.imgexercise);
+    public void controlcontent(){
+        listViewChuDe.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Intent intent = new Intent(HomeApp.this,Tu_Vung.class);
+                Bundle bundle = new Bundle();
+                bundle.putString("tuvung",names[i]);
+                intent.putExtra("data",bundle);
+                startActivity(intent);
+            }
+        });
     }
 }
