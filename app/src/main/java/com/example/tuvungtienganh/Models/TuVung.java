@@ -2,10 +2,12 @@ package com.example.tuvungtienganh.Models;
 
 public class TuVung {
     private int id;
+    private int idChuDe;
+    private int fav;
     private String tuVung;
     private String nghia;
     private String viDu;
-    private String anh;
+    private byte[] anh;
 
     public int getId() {
         return id;
@@ -39,22 +41,40 @@ public class TuVung {
         this.viDu = viDu;
     }
 
-    public String getAnh() {
+    public byte[] getAnh() {
         return anh;
     }
 
-    public void setAnh(String anh) {
+    public void setAnh(byte[] anh) {
         this.anh = anh;
+    }
+
+    public int getIdChuDe() {
+        return idChuDe;
+    }
+
+    public void setIdChuDe(int idChuDe) {
+        this.idChuDe = idChuDe;
+    }
+
+    public int getFav() {
+        return fav;
+    }
+
+    public void setFav(int fav) {
+        this.fav = fav;
     }
 
     public TuVung() {
     }
 
-    public TuVung(int id, String tuVung, String nghia, String viDu, String anh) {
+    public TuVung(int id,int idChuDe, String tuVung, String nghia, String viDu, byte[] anh, int idlove) {
         this.id = id;
+        this.idChuDe = idChuDe;
         this.tuVung = tuVung;
         this.nghia = nghia;
         this.viDu = viDu;
         this.anh = anh;
+        this.fav=idlove;
     }
 }

@@ -2,6 +2,8 @@ package com.example.tuvungtienganh.DataBase;
 
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -42,17 +44,19 @@ public class CusTomAdapterTuVung extends BaseAdapter{
         View view = convertView;
         if (view == null) {
             LayoutInflater inflater = LayoutInflater.from(context);
-            view =  inflater.inflate(R.layout.activity_line_tuvung, null);
+            view =  inflater.inflate(R.layout.activity_dong_tu_vung, null);
         }
         TuVung p = (TuVung) getItem(position);
         if (p != null) {
             // Anh xa + Gan gia tri
-            TextView txt1 = (TextView) view.findViewById(R.id.TextViewName);
+            TextView txt1 = (TextView) view.findViewById(R.id.textViewtu);
             txt1.setText(p.getTuVung());
-
-//            ImageView img1 = (ImageView) view.findViewById(R.id.imageWords);
-//            int abc = p.getImage();
-//            img1.setImageResource(abc);
+            TextView txt2 = view.findViewById(R.id.textViewnghia);
+            txt2.setText(p.getNghia());
+            ImageView img1 = (ImageView) view.findViewById(R.id.imageViewtu);
+            byte[] Image = p.getAnh();
+            Bitmap bitmap = BitmapFactory.decodeByteArray(Image, 0, Image.length);
+            img1.setImageBitmap(bitmap);
         }
         return view;
     }

@@ -1,6 +1,8 @@
 package com.example.tuvungtienganh;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,13 +10,15 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.tuvungtienganh.Models.ChuDe;
+
 import java.util.ArrayList;
 
 public class CustomAdapter extends BaseAdapter{
     private Context context;
-    private ArrayList<Content> contents;
+    private ArrayList<ChuDe> contents;
 
-    public CustomAdapter(Context context, ArrayList<Content> contents) {
+    public CustomAdapter(Context context, ArrayList<ChuDe> contents) {
         this.context = context;
         this.contents = contents;
     }
@@ -38,15 +42,16 @@ public class CustomAdapter extends BaseAdapter{
             LayoutInflater inflater = LayoutInflater.from(context);
             view =  inflater.inflate(R.layout.activity_line_tuvung, null);
         }
-        Content p = (Content) getItem(position);
+        ChuDe p = (ChuDe) getItem(position);
         if (p != null) {
             // Anh xa + Gan gia tri
             TextView txt1 = (TextView) view.findViewById(R.id.TextViewName);
             txt1.setText(p.getName());
 
+            byte[] Image = p.getAnh();
             ImageView img1 = (ImageView) view.findViewById(R.id.imageWords);
-            int abc = p.getImage();
-            img1.setImageResource(abc);
+            Bitmap bitmap = BitmapFactory.decodeByteArray(Image, 0, Image.length);
+            img1.setImageBitmap(bitmap);
         }
         return view;
     }

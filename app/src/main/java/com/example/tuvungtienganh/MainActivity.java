@@ -16,12 +16,30 @@ public class MainActivity extends AppCompatActivity {
     Button btnLogin;
     TextView txtSignup;
     String ten,mk;
+    DBHelperChuDe db;
+    DBHelper data;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        db = new DBHelperChuDe(this);
+        data = new DBHelper(this);
         init();
         controlbutton();
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        db.openDB();
+        data.openDB();
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        db.closeDB();
+        data.closeDB();
     }
 
     private void controlbutton() {
